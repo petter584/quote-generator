@@ -3,7 +3,6 @@ name: Build docker container
 on:
   workflow_dispatch:
 
-
 jobs:
   build:
 
@@ -12,3 +11,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+      - name: Build image
+        run : docker build -t quote-generator:1.0 .
+
