@@ -12,7 +12,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Build image
-        run : docker build -t quote-microservice:latest .
+        run : docker build -t quote-microservice1:latest .
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
