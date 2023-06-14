@@ -1,0 +1,7 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: quote-microservice
+    static_configs:
+      - targets: ['quote-microservice:5000']
