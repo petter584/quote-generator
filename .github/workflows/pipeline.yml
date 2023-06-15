@@ -42,6 +42,7 @@ jobs:
             ssh -o StrictHostKeyChecking=no -i ~/.ssh/ec2.pem ec2-user@34.201.2.135 <<EOF
             git clone https://github.com/petter584/quote-generator.git
             cd quote-generator
-            
+
             EOF
+            
 
