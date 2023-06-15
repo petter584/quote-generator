@@ -27,5 +27,6 @@ jobs:
             ECR_REPOSITORY: quote-microservice-repository
             IMAGE_TAG: latest
         run: |
+            echo $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
             docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
             docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG   
