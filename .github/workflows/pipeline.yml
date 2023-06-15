@@ -39,7 +39,7 @@ jobs:
             ssh -o StrictHostKeyChecking=no -i ~/.ssh/ec2.pem ec2-user@34.201.2.135 <<EOF
             aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
             aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-         
+            aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 729108405802.dkr.ecr.us-east-1.amazonaws.com
             cd ~
             docker compose down
             mv quote-generator/grafana-data .
