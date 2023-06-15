@@ -39,6 +39,18 @@ jobs:
             mkdir -p ~/.ssh
             echo "${{ secrets.SSH_PEM }}" > ~/.ssh/ec2.pem
             chmod 600 ~/.ssh/ec2.pem
-            ssh -o StrictHostKeyChecking=no -i ~/.ssh/ec2.pem ec2-user@34.201.2.135
-            touch testas.txt
-        
+            ssh -o StrictHostKeyChecking=no -i ~/.ssh/ec2.pem ec2-user@34.201.2.135 To perform multiple commands against a remote EC2 instance from GitHub Actions, you can modify the existing SSH command in your workflow. Here's an example of how you can execute multiple commands:
+
+                ```yaml
+                - name: SSH to EC2 instance and run commands
+                  run: |
+                    mkdir -p ~/.ssh
+                    echo "${{ secrets.<PEM_SECRET_NAME> }}" > ~/.ssh/ec2.pem
+                    chmod 600 ~/.ssh/ec2.pem
+                    ssh -o StrictHostKeyChecking=no -i ~/.ssh/ec2.pem ec2-user@<EC2_INSTANCE_IP> <<EOF
+                      echo "Command 1"
+                      echo "Command 2"
+                      echo "Command 3"
+                      touch testas.txt
+                    EOF
+                
