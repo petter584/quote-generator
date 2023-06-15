@@ -39,5 +39,6 @@ jobs:
             mkdir -p ~/.ssh
             echo "${{ secrets.SSH_PEM }}" > ~/.ssh/ec2.pem
             chmod 600 ~/.ssh/ec2.pem
-            ssh -o StrictHostKeyChecking=no -i ~/.ssh/ec2.pem ec2-user@34.201.2.135 "pwd"
+            ssh -o StrictHostKeyChecking=no -i ~/.ssh/ec2.pem ec2-user@34.201.2.135
+            touch testas.txt
         
