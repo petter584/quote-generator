@@ -2,7 +2,7 @@ version: '3'
 
 services:
   quote-microservice:
-    build: .
+    image: 729108405802.dkr.ecr.us-east-1.amazonaws.com/quote-repo:latest
     ports:
       - '5000:5000'
     networks:
