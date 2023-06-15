@@ -21,25 +21,25 @@ jobs:
       - name: Login to Amazon ECR
         id: ecr-user
         uses: aws-actions/amazon-ecr-login@v1
-    #   - name: Build, tag, and push image to Amazon ECR
-    #     env:
-    #         ECR_REGISTRY: ${{ steps.ecr-user.outputs.registry }}
-    #         ECR_REPOSITORY: quote-repo
-    #         IMAGE_TAG: latest
-    #     run: |
-    #         echo $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-    #         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY .
-    #         docker push $ECR_REGISTRY/$ECR_REPOSITORY   
-    #   - name: Install AWS CLI
-    #     run: |
-    #         sudo apt-get update
-    #         sudo apt-get install -y awscli
+      - name: Build, tag, and push image to Amazon ECR
+        env:
+            ECR_REGISTRY: ${{ steps.ecr-user.outputs.registry }}
+            ECR_REPOSITORY: quote-repo
+            IMAGE_TAG: latest
+        run: |
+            echo $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+            docker build -t $ECR_REGISTRY/$ECR_REPOSITORY .
+            docker push $ECR_REGISTRY/$ECR_REPOSITORY   
       - name: SSH to EC2 instance
         run: |
+            
             mkdir -p ~/.ssh
             echo "${{ secrets.SSH_PEM }}" > ~/.ssh/ec2.pem
             chmod 600 ~/.ssh/ec2.pem
             ssh -o StrictHostKeyChecking=no -i ~/.ssh/ec2.pem ec2-user@34.201.2.135 <<EOF
+            aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
+            aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+         
             cd ~
             docker compose down
             mv quote-generator/grafana-data .
