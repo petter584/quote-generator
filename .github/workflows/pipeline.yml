@@ -46,6 +46,7 @@ jobs:
             git clone https://github.com/petter584/quote-generator.git
             cd quote-generator
             mv ~/grafana-data .
+            chmod 777 quote-generator/grafana-data
             docker compose up -d
 
             EOF
