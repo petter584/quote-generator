@@ -40,9 +40,8 @@ jobs:
             echo "${{ secrets.SSH_PEM }}" > ~/.ssh/ec2.pem
             chmod 600 ~/.ssh/ec2.pem
             ssh -o StrictHostKeyChecking=no -i ~/.ssh/ec2.pem ec2-user@34.201.2.135 <<EOF
-            echo "Command 1"
-            echo "Command 2"
-            echo "Command 3"
-            touch testas.txt
+            git clone https://github.com/petter584/quote-generator.git
+            cd quote-generator
+            
             EOF
 
