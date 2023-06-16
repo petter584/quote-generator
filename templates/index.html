@@ -1,16 +1,55 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <title>Landing page.</title>
+    <title>Landing Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        a {
+            display: block;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            color: #333;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #e6e6e6;
+        }
+    </style>
 </head>
+
 <body>
-  <h1>Endpoints</h1>
-  <ul>
-    <li><a href="http://34.201.2.135/hello">Hello endpoint</a></li>
-    <li><a href="http://34.201.2.135/quote">Get random quote</a></li>
-    <li><a href="http://34.201.2.135/metrics">Flask metrics</a></li>
-    <li><a href="http://34.201.2.135:9090">Prometheus</a></li>
-    <li><a href="http://34.201.2.135:3000">Grafana</a></li>
-  </ul>
+    <h1>Welcome to the Landing Page</h1>
+    <ul>
+        <li><a href="http://34.201.2.135/hello">Hello Endpoint</a></li>
+        <li><a href="http://34.201.2.135/quote">Get Random Quote</a></li>
+        <li><a href="http://34.201.2.135/metrics">Flask Metrics</a></li>
+        <li><a href="http://34.201.2.135:9090">Prometheus</a></li>
+        <li><a href="http://34.201.2.135:3000">Grafana</a></li>
+    </ul>
 </body>
+
 </html>
