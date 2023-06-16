@@ -28,8 +28,8 @@ jobs:
             IMAGE_TAG: latest
         run: |
             docker build -t quote-service:latest .
-            docker tag quote-service:latest $ECR_REGISTRY/$ECR_REPOSITORY 
-            docker push $ECR_REGISTRY/$ECR_REPOSITORY   
+            docker tag quote-service:latest $ECR_REGISTRY/$ECR_REPOSITORY:1
+            docker push $ECR_REGISTRY/$ECR_REPOSITORY:1
       - name: SSH to EC2 instance
         run: |
             
