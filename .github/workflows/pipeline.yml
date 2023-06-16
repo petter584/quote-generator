@@ -42,13 +42,13 @@ jobs:
             aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 729108405802.dkr.ecr.us-east-1.amazonaws.com
             cd ~
             docker compose -f quote-generator/docker-compose.yml down
-            sudo mv quote-generator/grafana-data .
-            sudo rm -rf quote-generator
+            mv quote-generator/grafana-data .
+            rm -rf quote-generator
             git clone https://${{ secrets.GIT_PAT }}@github.com/${{ secrets.GIT_REPO }}
-            sudo cd quote-generator
-            sudo rm -rf grafana-data
-            sudo mv ~/grafana-data .
-            sudo sudo chown -R ${{ secrets.EC2_USER }}:${{ secrets.EC2_USER }} grafana-data
+            cd quote-generator
+            rm -rf grafana-data
+            mv ~/grafana-data .
+            chown -R ec2-user:ec2-user grafana-data
             
             docker compose up -d
 
