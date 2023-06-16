@@ -36,7 +36,7 @@ jobs:
             mkdir -p ~/.ssh
             echo "${{ secrets.SSH_PEM }}" > ~/.ssh/ec2.pem
             chmod 600 ~/.ssh/ec2.pem
-            ssh -o StrictHostKeyChecking=no -i ~/.ssh/ec2.pem ${{ secrets.EC2_USER }}@${{ secrets.EC2_IP }} <<EOF
+            ssh -o StrictHostKeyChecking=no -i ~/.ssh/ec2.pem ${{ secrets.EC2_USER }}@${{ secrets.EC2_IP }} "export IMAGE_TAG=${{ github.run_number }} && bash -s" <<EOF
             aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
             aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
             aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 729108405802.dkr.ecr.us-east-1.amazonaws.com
