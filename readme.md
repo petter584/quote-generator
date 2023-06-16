@@ -27,7 +27,7 @@ Setup these Github actions secrets used in the CI/CD pipeline
 
 ### Prometheus 
 
-Access the Prometheus dashboard by navigating to the EC2 instance's public IP address or hostname in a web browser on port `9090`.
+Access the Prometheus dashboard by navigating to the EC2 instance's public IP address or hostname in a web browser on port `9090`. Prometheus scrapes monitoring data published on endpoint `/metrics`
 ### Grafana
 Access the Grafana dashboard by navigating to the EC2 instance's public IP address or hostname in a web browser on port `3000`.
 Log in to Grafana using the default credentials (username: `admin`, password: `admin`).

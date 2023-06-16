@@ -42,5 +42,11 @@ def quote():
     return jsonify({"quote": quote})
 
 
+# Default route
+@app.route('', defaults={'path': ''})
+@app.route('/<path:path>')
+def default_route(path):
+    return main()
+
 if __name__ == '__main__':
     app.run(host="0.0.0.0")
