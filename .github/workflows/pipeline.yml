@@ -25,11 +25,11 @@ jobs:
         env:
             ECR_REGISTRY: ${{ steps.ecr-user.outputs.registry }}
             ECR_REPOSITORY: quote-repo2
-            IMAGE_TAG: latest
+            IMAGE_TAG: ${{ github.run_number }}
         run: |
             docker build -t quote-service:latest .
-            docker tag quote-service:latest $ECR_REGISTRY/$ECR_REPOSITORY:1
-            docker push $ECR_REGISTRY/$ECR_REPOSITORY:1
+            docker tag quote-service:latest $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+            docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
       - name: SSH to EC2 instance
         run: |
             
