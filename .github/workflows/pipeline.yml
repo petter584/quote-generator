@@ -49,7 +49,7 @@ jobs:
             rm -rf grafana-data
             mv ~/grafana-data .
             sudo chown -R ec2-user:ec2-user grafana-data/
-            chmod 660 grafana-data
+            chmod 777 grafana-data
             docker compose up -d
 
             EOF

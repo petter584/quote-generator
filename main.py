@@ -27,12 +27,12 @@ limiter = Limiter(
 )
 @app.route('/')
 def main():
-    return "<h1>Landing page. Nice!</h1>"
+    return "<h1>Landing page</h1>"
 
 @app.route('/hello', methods=['GET'])
 @limiter.limit("10 per minute")
 def hello():
-    return jsonify({"greeting": "hello world!"})
+    return jsonify({"greeting": "Hello world!"})
 
 
 @app.route('/quote', methods=['GET'])
