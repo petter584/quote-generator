@@ -41,7 +41,7 @@ jobs:
             aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
             aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 729108405802.dkr.ecr.us-east-1.amazonaws.com
             cd ~
-            docker compose down
+            docker compose -f quote-generator/docker-compose.yml down
             mv quote-generator/grafana-data .
             rm -rf quote-generator
             git clone https://${{ secrets.GIT_PAT }}@github.com/${{ secrets.GIT_REPO }}
