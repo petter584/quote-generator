@@ -48,7 +48,8 @@ jobs:
             cd quote-generator
             rm -rf grafana-data
             mv ~/grafana-data .
-            chmod 777 grafana-data
+            chmod 550 grafana-data
+            chown -R ec2-user:ec2-user grafana-data/
             docker compose up -d
 
             EOF
