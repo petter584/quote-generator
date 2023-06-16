@@ -1,4 +1,4 @@
-name: Build docker container
+name: CI/CD pipeline
 
 on:
   push:
@@ -32,7 +32,7 @@ jobs:
             docker build -t quote-service:latest .
             docker tag quote-service:latest $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
             docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-      - name: SSH to EC2 instance
+      - name: Deploy to EC2
         run: |
             
             mkdir -p ~/.ssh
