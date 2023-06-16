@@ -43,8 +43,8 @@ jobs:
             aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
             aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin ${ECR_REPOSITORY}
             cd ~
-            docker compose -f quote-generator/docker-compose.yml down
             if [ -d "quote-generator" ]; then
+              docker compose -f quote-generator/docker-compose.yml down
               mv quote-generator/grafana-data .
               rm -rf quote-generator
             fi
