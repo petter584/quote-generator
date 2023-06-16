@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
 import requests
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
@@ -27,7 +27,7 @@ limiter = Limiter(
 )
 @app.route('/')
 def main():
-    return "<h1>Landing page!!!!</h1>"
+    return render_template('index.html')
 
 @app.route('/hello', methods=['GET'])
 @limiter.limit("10 per minute")
@@ -41,12 +41,6 @@ def quote():
     quote = get_random_quote()
     return jsonify({"quote": quote})
 
-
-# Default route
-@app.route('', defaults={'path': ''})
-@app.route('/<path:path>')
-def default_route(path):
-    return main()
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0")
