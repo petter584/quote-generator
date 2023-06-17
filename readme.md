@@ -1,7 +1,7 @@
 
 # Random Quote Micorservice
 
-This repository contains the necessary files and configurations to set up a CI/CD pipeline for a microservice called "quote-microservice." The pipeline automates the build and deployment process of the microservice using GitHub Actions, EC2 instance (AWS) and Elastic Container Registry (ECR)
+This repository contains the necessary files and configurations to set up a CI/CD pipeline for a microservice called "quote-microservice." The pipeline automates the build, test and deployment process of the microservice using GitHub Actions, EC2 instance (AWS) and Elastic Container Registry (ECR)
 
 ## Microservice Description
 The microservice code is written in Python using the Flask framework. It provides the following endpoints:
