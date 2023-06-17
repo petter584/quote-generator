@@ -13,7 +13,10 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-
+      - name: Run Tests
+        run: |
+            pip3 install -r requirements.txt
+            python3 tests.py
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
