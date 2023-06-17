@@ -10,10 +10,12 @@ services:
 
   prometheus:
     image: prom/prometheus
+    user: '1000'
     ports:
       - '9090:9090'
     volumes:
       - ./prometheus:/etc/prometheus
+      - prometheus-data:/prometheus
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
     networks:
@@ -30,5 +32,9 @@ services:
       - ./grafana-data:/var/lib/grafana
     networks:
       - prometheus-net
+
 networks:
   prometheus-net:
+
+volumes:
+  prometheus-data:
