@@ -21,7 +21,9 @@ Setup these Github actions secrets used in the CI/CD pipeline
 - GIT_REPO
 - SSH_PEM - EC2 instance SSH private key
 
+## Testing
 
+Unit tests are located at `tests.py`
 
 ## Monitoring with Prometheus and Grafana
 
