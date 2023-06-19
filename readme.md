@@ -33,3 +33,4 @@ Access the Prometheus dashboard by navigating to the EC2 instance's public IP ad
 ### Grafana
 Access the Grafana dashboard by navigating to the EC2 instance's public IP address or hostname in a web browser on port `3000`.
 Log in to Grafana using the default credentials (username: `admin`, password: `admin`).
+
