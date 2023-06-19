@@ -9,7 +9,7 @@ services:
       resources:
         limits:
           cpus: '0.5'    # Limit to 50% of a CPU core
-          memory: 500M   # Limit to 500MB of memory
+          memory: 256M   # Limit to 500MB of memory
     networks:
       - prometheus-net
 
@@ -25,7 +25,7 @@ services:
       resources:
         limits:
           cpus: '0.5'    # Limit to 50% of a CPU core
-          memory: 500M   # Limit to 500MB of memory
+          memory: 256M   # Limit to 500MB of memory
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
     networks:
@@ -44,7 +44,7 @@ services:
       resources:
         limits:
           cpus: '0.5'    # Limit to 50% of a CPU core
-          memory: 500M   # Limit to 500MB of memory
+          memory: 400M   # Limit to 500MB of memory
     networks:
       - prometheus-net
 
