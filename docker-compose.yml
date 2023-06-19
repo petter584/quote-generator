@@ -5,6 +5,11 @@ services:
     image: ${ECR_REPOSITORY}/quote-repo2:${IMAGE_TAG}
     ports:
       - '80:5000'
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'    # Limit to 50% of a CPU core
+          memory: 500M   # Limit to 500MB of memory
     networks:
       - prometheus-net
 
@@ -16,6 +21,11 @@ services:
     volumes:
       - ./prometheus:/etc/prometheus
       - ./prometheus-data:/prometheus
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'    # Limit to 50% of a CPU core
+          memory: 500M   # Limit to 500MB of memory
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
     networks:
@@ -30,6 +40,11 @@ services:
       - prometheus
     volumes:
       - ./grafana-data:/var/lib/grafana
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'    # Limit to 50% of a CPU core
+          memory: 500M   # Limit to 500MB of memory
     networks:
       - prometheus-net
 
