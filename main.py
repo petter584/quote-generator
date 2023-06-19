@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, render_template
+from flask import Flask, jsonify, render_template, redirect
 import requests
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
@@ -41,6 +41,12 @@ def quote():
     quote = get_random_quote()
     return jsonify({"quote": quote})
 
+
+# Catch-all route for non-existing routes
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def catch_all(path):
+    return redirect('/')
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0")
